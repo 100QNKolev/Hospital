@@ -12,5 +12,6 @@ namespace Hospital.Data
         }
         public DbSet<Hospital.Data.Examination>? Examination { get; set; }
         public DbSet<Hospital.Data.ReserveExamination>? ReserveExamination { get; set; }
+        public DbSet<Hospital.Data.Doctor>? Doctor { get; set; }
     }
 }

@@ -8,12 +8,11 @@ namespace Hospital.Data
     {
         [Key]
         public int Id { get; set; }
-        public string PatientId { get; set; }
-        public Patient Patient { get; set; }
+        public string? PatientId { get; set; }
+        public Patient? Patient { get; set; }
         public DateTime ExaminationDate { get; set; }
         public DateTime ExaminationTime { get; set; }
-        [ForeignKey("Id")]
         public int DoctorId { get; set; }
-        public Doctor Doctor { get; set; }
+        public Doctor? Doctor { get; set; }
     }
 }

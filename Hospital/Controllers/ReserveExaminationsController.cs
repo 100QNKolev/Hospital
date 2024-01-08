@@ -32,7 +32,7 @@ namespace Hospital.Controllers
             {
                 return NotFound();
             }
-
+            
             var reserveExamination = await _context.ReserveExamination
                 .Include(r => r.Doctor)
                 .Include(r => r.Patient)
@@ -48,8 +48,8 @@ namespace Hospital.Controllers
         // GET: ReserveExaminations/Create
         public IActionResult Create()
         {
-            ViewData["DoctorId"] = new SelectList(_context.Set<Doctor>(), "Id", "Id");
-            ViewData["PatientId"] = new SelectList(_context.Set<Patient>(), "Id", "Id");
+            ViewData["DoctorId"] = new SelectList(_context.Set<Doctor>(), "Id", "LastName");
+            ViewData["PatientId"] = new SelectList(_context.Set<Patient>(), "Id", "Email");
             return View();
         }
 
@@ -66,8 +66,8 @@ namespace Hospital.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DoctorId"] = new SelectList(_context.Set<Doctor>(), "Id", "Id", reserveExamination.DoctorId);
-            ViewData["PatientId"] = new SelectList(_context.Set<Patient>(), "Id", "Id", reserveExamination.PatientId);
+            ViewData["DoctorId"] = new SelectList(_context.Set<Doctor>(), "Id", "LastName", reserveExamination.DoctorId);
+            ViewData["PatientId"] = new SelectList(_context.Set<Patient>(), "Id", "Email", reserveExamination.PatientId);
             return View(reserveExamination);
         }
 
@@ -84,8 +84,8 @@ namespace Hospital.Controllers
             {
                 return NotFound();
             }
-            ViewData["DoctorId"] = new SelectList(_context.Set<Doctor>(), "Id", "Id", reserveExamination.DoctorId);
-            ViewData["PatientId"] = new SelectList(_context.Set<Patient>(), "Id", "Id", reserveExamination.PatientId);
+            ViewData["DoctorId"] = new SelectList(_context.Set<Doctor>(), "Id", "LastName", reserveExamination.DoctorId);
+            ViewData["PatientId"] = new SelectList(_context.Set<Patient>(), "Id", "Email", reserveExamination.PatientId);
             return View(reserveExamination);
         }
 
@@ -121,8 +121,8 @@ namespace Hospital.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DoctorId"] = new SelectList(_context.Set<Doctor>(), "Id", "Id", reserveExamination.DoctorId);
-            ViewData["PatientId"] = new SelectList(_context.Set<Patient>(), "Id", "Id", reserveExamination.PatientId);
+            ViewData["DoctorId"] = new SelectList(_context.Set<Doctor>(), "Id", "LastName", reserveExamination.DoctorId);
+            ViewData["PatientId"] = new SelectList(_context.Set<Patient>(), "Id", "Email", reserveExamination.PatientId);
             return View(reserveExamination);
         }
 

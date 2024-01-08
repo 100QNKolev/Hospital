@@ -48,8 +48,8 @@ namespace Hospital.Controllers
         // GET: Examinations/Create
         public IActionResult Create()
         {
-            ViewData["DoctorId"] = new SelectList(_context.Set<Doctor>(), "Id", "Id");
-            ViewData["PatientId"] = new SelectList(_context.Set<Patient>(), "Id", "Id");
+            ViewData["DoctorId"] = new SelectList(_context.Set<Doctor>(), "Id", "LastName");
+            ViewData["PatientId"] = new SelectList(_context.Set<Patient>(), "Id", "Email");
             return View();
         }
 
@@ -68,8 +68,8 @@ namespace Hospital.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DoctorId"] = new SelectList(_context.Set<Doctor>(), "Id", "Id", examination.DoctorId);
-            ViewData["PatientId"] = new SelectList(_context.Set<Patient>(), "Id", "Id", examination.PatientId);
+            ViewData["DoctorId"] = new SelectList(_context.Set<Doctor>(), "Id", "LastName", examination.DoctorId);
+            ViewData["PatientId"] = new SelectList(_context.Set<Patient>(), "Id", "Email", examination.PatientId);
             return View(examination);
         }
 
@@ -86,8 +86,8 @@ namespace Hospital.Controllers
             {
                 return NotFound();
             }
-            ViewData["DoctorId"] = new SelectList(_context.Set<Doctor>(), "Id", "Id", examination.DoctorId);
-            ViewData["PatientId"] = new SelectList(_context.Set<Patient>(), "Id", "Id", examination.PatientId);
+            ViewData["DoctorId"] = new SelectList(_context.Set<Doctor>(), "Id", "LastName", examination.DoctorId);
+            ViewData["PatientId"] = new SelectList(_context.Set<Patient>(), "Id", "Email", examination.PatientId);
             return View(examination);
         }
 
@@ -123,8 +123,8 @@ namespace Hospital.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DoctorId"] = new SelectList(_context.Set<Doctor>(), "Id", "Id", examination.DoctorId);
-            ViewData["PatientId"] = new SelectList(_context.Set<Patient>(), "Id", "Id", examination.PatientId);
+            ViewData["DoctorId"] = new SelectList(_context.Set<Doctor>(), "Id", "LastName", examination.DoctorId);
+            ViewData["PatientId"] = new SelectList(_context.Set<Patient>(), "Id", "Email", examination.PatientId);
             return View(examination);
         }
 

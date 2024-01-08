@@ -1,8 +1,22 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@Html.ActionLink("Go to Examinations|", "", "Examinations")
+@Html.ActionLink("Reserve Examination|", "", "ReserveExaminations")
+@Html.ActionLink("Go to Doctors", "", "Doctors")
+
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<h1>Stats</h1>
+Patients: @ViewData["PetientCount"];
+<br/>
+Examinations: @ViewData["ExaminationsCount"];
+<br />
+Reserved Examinations: @ViewData["ReservedExaminationsCount"];
+<br />
+Doctors: @ViewData["DoctorsCount"];
+<br />
